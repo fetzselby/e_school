@@ -1,8 +1,16 @@
-var config = {
-	db_host : 'ds151141.mlab.com',
-	db_name : 'revenue_collection',
-	db_instance : 'eghana:eghana@ds151141.mlab.com:51141/revenue_collection' 
-    //  127.0.0.1/revenue_collection
-}
+var Sequelize = require('sequelize');
 
-module.exports = {config : config};
+const sequelize = new Sequelize('m_school', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+});
+
+//module.exports = {config : config};
+module.exports = {config : sequelize};
+
